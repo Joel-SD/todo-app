@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+.todoListContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}
