@@ -1,12 +1,7 @@
 # JOEL CARRASCO
+## This is a ToDos app 'in progress'
 
-## Hola, gracias por visitar mi repositorio.
-
-Este proyecto es un Challenge de Frontend Mentor, lo desarrolle utilizando unicamente HTML, CSS y la
-    metodologia BEM.
-El proyecto trae algunos colores, fuentes, imagenes que se utilizan segun se desarrolla, como siempre
-    trato de hacer diferentes layouts, pero el obejtivo siempre es tratar de relalizar la pagina lo mas 
-    parecido al diseño que nos muestran.
+In this app I use next js 13, redux toolkit to fetch the data, I normally use Axios but being a small app it is the fastest option, I also make the data persist using local storage, if you are seeing this with practically no styles , it is because I will be doing several other functionalities before moving on to that part in which I will be applying Tailwind or Sass.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
