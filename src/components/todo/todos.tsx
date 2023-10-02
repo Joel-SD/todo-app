@@ -1,64 +1,52 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import ToDo from "./components/todo/todo";
+//styles
 import styles from "./todosStyles.module.css";
+//componets
+import ToDo from "./components/todo/todo";
+//type
 import { TodoType } from "@/types/todo.type";
+//redux
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import { getTodosData, setTodos } from "../../store/todoSlice/todoSlice";
+import { todo } from "node:test";
 
 const ToDos = () => {
-  const [todos, setTodos] = useState<TodoType[]>([]);
-
-  const getTodoData = async () => {
-    await fetch("https://dummyjson.com/todos")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "fetch data");
-        setTodos(data.todos);
-        return data;
-      })
-      .catch((err) => {
-        console.log(err, "error fetch data");
-      });
-  };
+  const dispatch = useAppDispatch();
+  const todoData = useAppSelector((state) => state.todosSlice.todos);
 
   useEffect(() => {
-    getTodoData();
+    if (todoData.length < 1 && dispatch) dispatch(getTodosData());
   }, []);
-
-  const handleRemove = (id: number) => {
-    console.log(id);
-    const newTodos = todos?.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-  };
 
   const handleComplete = useCallback(
     (id: number) => {
-      const newTodos = todos.map((todo) => {
+      const newTodos = todoData.map((todo) => {
         if (todo.id === id) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
       });
-      setTodos(newTodos);
+      dispatch(setTodos(newTodos));
     },
-    [todos]
+    [todoData]
   );
 
   return (
     <div className={styles.container}>
       <h1>Todo list </h1>
       <ul className={styles.todoListContainer}>
-        {todos &&
-          todos.map((todo) => (
-            <ToDo
-              key={todo.id}
-              id={todo.id}
-              todo={todo.todo}
-              completed={todo.completed}
-              userId={todo.userId}
-              // onRemoveTodo={handleRemove}
-              onCompleteTodo={handleComplete}
-            />
-          ))}
+        {todoData.map((todo) => (
+          <ToDo
+            key={todo.id}
+            id={todo.id}
+            todo={todo.todo}
+            completed={todo.completed}
+            userId={todo.userId}
+            // onRemoveTodo={handleRemove}
+            onCompleteTodo={handleComplete}
+          />
+        ))}
       </ul>
     </div>
   );

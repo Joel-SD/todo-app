@@ -1,14 +1,18 @@
+"use client";
 //styles
 import styles from "./page.module.css";
 //components
 import ToDos from "@/components/todo/todos";
-//mock data
-import { _todos } from "@/_mock/_todos";
+//redux
+import { Provider } from "react-redux";
+import { store } from "../store";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <ToDos />
-    </main>
+    <Provider store={store}>
+      <main className={styles.main}>
+        <ToDos />
+      </main>
+    </Provider>
   );
 }
