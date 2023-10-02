@@ -1,6 +1,12 @@
+# JOEL CARRASCO
+
 ## Hola, gracias por visitar mi repositorio.
 
-testing
+Este proyecto es un Challenge de Frontend Mentor, lo desarrolle utilizando unicamente HTML, CSS y la
+    metodologia BEM.
+El proyecto trae algunos colores, fuentes, imagenes que se utilizan segun se desarrolla, como siempre
+    trato de hacer diferentes layouts, pero el obejtivo siempre es tratar de relalizar la pagina lo mas 
+    parecido al diseño que nos muestran.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
