@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { Middleware, configureStore } from "@reduxjs/toolkit";
 import todoReducer from "./todoSlice/todoSlice";
 
 // Persist state in local storage
-const saveTodosToLocalStorage = (store) => (next) => (action) => {
+const saveTodosToLocalStorage: Middleware = (store) => (next) => (action) => {
   next(action);
   const state = store.getState();
   localStorage.setItem("todos", JSON.stringify(state.todosSlice.todos));
